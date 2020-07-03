@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # 1.3 Used by socialaccount app to create callback URLS
+    'allauth', # 1.3 Allauth itself
+    'allauth.account', # 1.3 Basic account stuff like log in, password reset, etc.
+    'allauth.socialaccount', # 1.3 Log in via social accounts
 ]
 
 MIDDLEWARE = [
@@ -59,13 +63,37 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request', # 1.1 Required to use request object
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
+# 1.2
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+# end 1.2
+
+SITE_ID = 1 # 1.4 Used by socialaccount app to create callback URLS
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # 1.7 To test confirmation mails via console
+
+# 1.8
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/' # 1.9 Change this redirect from / to /success to test.
+# end 1.8
 
 WSGI_APPLICATION = 'boutique_chingu_online.wsgi.application'
 
