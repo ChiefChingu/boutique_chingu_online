@@ -8,10 +8,38 @@
 1. ```django-admin startproject [name] .``` Make sure to use the dot! (creates it in current directory)
 2. Check if it works: ```python manage.py runserver```
 
+## Secure secret key
+- Create a file to isolate your secret key
+- In this project it is called secret.py
+- Cut and paste the secret key from settings.py in this file (remove from settings.py)
+- Add ```from secret import SECRET_KEY``` to the settings file (to import the key)
+
+## Create .gitignore
+- Create the file in the root of the project
+- Add:
+    - *.sqlite3
+    - *.pyc
+    - ```__pycache__```
+    - env
+    - /env
+    - secret.py
+
+## Initiate repository and set remote
+- ```git init```
+- If not done yet: create repo in github.
+- Do a first commit (add all there is and commit)
+- Then:
+    - ```git remote add origin https://github.com/ChiefChingu/reviewsfromkids.git```
+    - ```git push -u origin master```
+
 ## Take care of migrations
 1. ```python manage.py migrate```
 2. While further in project, make sure to always do a dry run ```python manage.py makemigrations --dry-run```
 3. ```python manage.py migrate --plan```
+
+## Create superuser
+- ```python manage.py createsuperuser```
+- Choose username and password. Leave email blank.
 
 # Project steps
 ## 1 Allauth
@@ -29,7 +57,7 @@
 - You'll see that there is more info now after we added some apps.
 - Go to the sites area and change the domain name and display name.
 - Allauth sends confirmation mails to new accounts. To test this, we need to send these to the console, so we can use the confirmation links (alternatively, first create the whole signup flow and then test with temp emails)
-7. Add a section EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+7. Add a section ```EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'```
 8. Add account creation settings and set redirect to /success.
     - Log in and go to /accounts/login. Use superuser creds. You'll get the confirm-email page.
     - Superuser was created before this setting, so confirm manually: go to email addresses, add new one, check verified and primary. Save all and exit.
@@ -39,5 +67,23 @@
 - Create a directory called templates in the root folder and create a directory in it called allauth.
 - Now commit changes.
 
+## 2 Base template
+- We need to copy the Allauth templates and use them in our templates folder. This way these customizable templates take precedence over the standard Allauth templates.
+- To do so, go to the folder: env/lib/allauth/templates and copy all content.
+- Paste the content in the templates/allauth folder in the root.
+- Now it is time to create a base.html at project level.
+- Create a new file in the templates folder called base.html
+- Use bootstrap if preferred, otherwise materializecss.
+- Grab the boilerplate template and copy in the base.html (in the root)
+- Customize the template:
+    1. ```<meta http-equiv="X-UA-Compatible" content="ie=edge">``` to make it work with Internet Explorer
+    - Change the title to match your project
+    - Delete the Hello World heading
+    - Move scripts to the header
+    2. Add ```{% load static %}``` for when we need to load static files
 
 
+
+
+
+## 3 Install SCSS
