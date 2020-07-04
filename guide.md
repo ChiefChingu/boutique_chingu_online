@@ -80,7 +80,15 @@
     - Change the title to match your project
     - Delete the Hello World heading
     - Move scripts to the header
-    2. Add ```{% load static %}``` for when we need to load static files
+    2. Add ```{% load static %}``` for when we need to load static files.
+    3. Add some blocks to be able to customize later on:
+        - Block for meta
+        - Block for core CSS
+        - Block for core JS
+    4. Add a block in the title to be able to make the title page/template specific
+    - Add header and messages block via if statement.
+
+
 
 
 
