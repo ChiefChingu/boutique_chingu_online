@@ -74,7 +74,7 @@
 - Now it is time to create a base.html at project level.
 - Create a new file in the templates folder called base.html
 - Use bootstrap if preferred, otherwise materializecss.
-- Grab the boilerplate template and copy in the base.html (in the root)
+- Grab the boilerplate template and copy in the base.html
 - Customize the template:
     1. ```<meta http-equiv="X-UA-Compatible" content="ie=edge">``` to make it work with Internet Explorer
     - Change the title to match your project
@@ -87,6 +87,9 @@
         - Block for core JS
     4. Add a block in the title to be able to make the title page/template specific
     - Add header and messages block via if statement.
+    - Add page header block.
+    - Add main content block.
+    - Add postload js block.
 
 
 
