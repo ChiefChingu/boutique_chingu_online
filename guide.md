@@ -91,6 +91,25 @@
     - Add main content block.
     - Add postload js block.
 
+## 3. Add a homepage: create a home app
+- ```python manage.py startapp home``` creates a home folder in the project root.
+- ```mkdir -p home/templates/home``` to create a templates with a home folder in it.
+- Create a file index.html in this home folder.
+- Add template blocks and a test text.
+1. Add a view to render the template in views.py
+- Create a file urls.py in the home folder.
+2. Copy the content from the project-level urls.py and paste it.
+- Remove the comments and remove the ```include``` from the django import.
+3. Add an empty path to indicate this is the route URL. ```path('', views.index, name='home'),``` It is going to render views.index with the name home.
+4. We need to link the views.py in order to render it, so add it as import ```from . import views```.
+5. We also need to add the urls that we specify in the home app to the project-level urls.py.
+6. And add the home app to the installed apps in the settings.py.
+7. Add the templates directories to the templates section in the DIRS:
+    - ```os.path.join(BASE_DIR, 'templates'),```
+    - ```os.path.join(BASE_DIR, 'templates', 'allauth'),```
+
+
+
 
 
 

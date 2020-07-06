@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth', # 1.3 Allauth itself
     'allauth.account', # 1.3 Basic account stuff like log in, password reset, etc.
     'allauth.socialaccount', # 1.3 Log in via social accounts
+    'home', # 3.6 Include the home app
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,10 @@ ROOT_URLCONF = 'boutique_chingu_online.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'), # 3.7
+            os.path.join(BASE_DIR, 'templates', 'allauth'), # 3.7
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
