@@ -108,7 +108,25 @@
     - ```os.path.join(BASE_DIR, 'templates'),```
     - ```os.path.join(BASE_DIR, 'templates', 'allauth'),```
 
-
+## 4. Homepage content and styling
+- Copy paste content from Code Institute into the index.html
+- Copy paste content from Code Institute into the base.html
+- Create new folders:
+    - ```mkdir static```
+    - ```mkdir media```
+    - ```mkdir static/css```
+- Create a css file base.css and copy code in it.
+- Grab the image and upload in the media folder.
+1. Grab the Google Font via fontsgoogle.com and add the code
+2. Link the base.css file
+3. Grab the fontawesomecode and paste
+- Now we need to link the static and media files:
+    4. In settings.py underneath STATIC_URL put ```STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')``` so django knows where the static files are located
+    5. Add MEDIA_URL and MEDIA_ROOT to set where uploaded media files go.
+- To allow django to see the MEDIA_URL we go to urls.py:
+    6. ```from django.conf import settings```
+    7. ```from django.conf.urls.static import static```
+    8. Add to urlpatterns ```+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)```
 
 
 
