@@ -128,6 +128,8 @@
     7. ```from django.conf.urls.static import static```
     8. Add to urlpatterns ```+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)```
 
+## 5. Add product data
+- From kaggle.com you can get sample data.
 
 
 
