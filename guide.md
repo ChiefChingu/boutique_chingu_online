@@ -154,6 +154,17 @@
 - And then products ```python manage.py loaddata products```
 - Check it via the admin: log in and see it.
 
+## 6 Changes to admin
+- You see that Django added an s to category, so it says categorys.
+1. Fix this by adding a class Meta with ```verbose_name_plural = 'Categories'``` in models.py
+- Add two classes to admin.py:
+    2. ProductAdmin
+    3. CategoryAdmin
+- Add the fields you want to see in the admin.
+4. You can set the order via ```ordering = ``` (reverse it by adding a minus sign before the keyword)
+
+
+
 
 
 
