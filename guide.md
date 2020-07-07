@@ -130,6 +130,35 @@
 
 ## 5. Add product data
 - From kaggle.com you can get sample data.
+- For this ecomm project there is data in the zip.
+- Copy all images to the media file.
+- Create the products app: ```python manage.py startapp products```
+1. Add products to the installed apps in settings.py
+- To bulk upload data into the django database we use fixtures.
+- Create a folder fixtures in the products folder.
+- Then drop json fixture files in here (also in zip).
+- We need to create models for the fixtures.
+- In models.py:
+    - Add two models, one for category and one for products.
+    - Just copy paste code from Code Institute GitHub (CIGH).
+- Do a dry run on migration: ```python manage.py makemigrations --dry-run```
+- We get an error: we need to install Pillow.
+- ```pip3 install pillow```
+- Do the dry run again and you'll see it is ready for migration for products (Create model category and products).
+- Migrate using the plan flag: ```python manage.py migrate --plan```
+- You can now see what apps are going to be migrated.
+- Apply migration.
+2. Now import the product and category model in admin.py ```from .models import Product, Category```
+3. Register it ```admin.site.register(Product)``` and ```admin.site.register(Category)```
+- Now we need to use the fixtures: first the categories since the products need to know what categories they sit in ```python manage.py loaddata categories```
+- And then products ```python manage.py loaddata products```
+- Check it via the admin: log in and see it.
+
+
+
+
+
+
 
 
 

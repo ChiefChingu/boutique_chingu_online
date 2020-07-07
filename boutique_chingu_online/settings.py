@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'allauth.account', # 1.3 Basic account stuff like log in, password reset, etc.
     'allauth.socialaccount', # 1.3 Log in via social accounts
     'home', # 3.6 Include the home app
+    'products', # 5.1 Include the products app
+    
 ]
 
 MIDDLEWARE = [
