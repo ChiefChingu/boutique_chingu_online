@@ -91,6 +91,11 @@
     - Add main content block.
     - Add postload js block.
 
+## Includes
+- Create a folder includes in the temlates folder
+- Add two files main-nav.html and mobile-top-header.html
+- In the base template copy the code for the two divs that sit at the end of the header. This will import the two html files we just created via ```{% include 'includes/mobile-top-header.html' %}``` ande ```{% include 'includes/main-nav.html' %}```
+
 ## 3. Add a homepage: create a home app
 - ```python manage.py startapp home``` creates a home folder in the project root.
 - ```mkdir -p home/templates/home``` to create a templates with a home folder in it.
@@ -184,6 +189,17 @@
 - Copy the content of the index.html as a shell.
 - Add ```{{ products }} and go to /products
 
+## 10 Create product detail page
+- We need a new view that takes the product id as a parameter.
+- It looks a lot like the all products view, so copy this as a base.
+1. Change the name of the view and template.
+2. Add product id as parameter.
+3. Grab one item from db.
+4. Make product available.
+5. Import get_object
+6. Add url.
+- Duplicate the products template and rename
+- Copy from CIGH.
 
 
 
