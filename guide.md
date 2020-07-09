@@ -158,12 +158,31 @@
 - You see that Django added an s to category, so it says categorys.
 1. Fix this by adding a class Meta with ```verbose_name_plural = 'Categories'``` in models.py
 - Add two classes to admin.py:
-    2. ProductAdmin
-    3. CategoryAdmin
+2. ProductAdmin
+3. CategoryAdmin
 - Add the fields you want to see in the admin.
 4. You can set the order via ```ordering = ``` (reverse it by adding a minus sign before the keyword)
 
+## 7 Create product view
+- Copy the view from the home views.py.
+- Paste this in the products views.py.
+1. Change the name and add context.
+2. Import .models
+3. Connect to the database
+4. Make available for the template
 
+## 8 Create products url + add to project lvl
+- Create a file urls.py in the products folder
+- Copy the urls.py from the home folder and paste.
+- Remove ```from django.contrib import admin``` from both files. It appears that we do not need it at all.
+1. Just change the view to ```views.all_products``` and the name to products.
+2. Include the url in the project lvl urls.py
+
+## 9 Create products template
+- ```mkdir -p products/templates/products```
+- Create a file products.html in the products dir
+- Copy the content of the index.html as a shell.
+- Add ```{{ products }} and go to /products
 
 
 
